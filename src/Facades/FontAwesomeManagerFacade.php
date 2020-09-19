@@ -1,6 +1,6 @@
 <?php
 
-namespace Loopy\FontAwesome\Facade;
+namespace Loopy\FontAwesome\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
