@@ -1,0 +1,21 @@
+{
+    "name": "loopy/font_awesome",
+    "description": "FontAwesome - Laravel Package",
+    "type": "project",
+    "license": "MIT",
+    "authors": [{
+        "name": "Grant Pearce",
+        "email": "drloopyuk1@hotmail.com"
+    }],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "^5.3.*"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Loopy\\FontAwesome\\": "src"
+        }
+    }
+}
