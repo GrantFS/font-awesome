@@ -20,6 +20,22 @@ php artisan vendor:publish
 
 ```
 
+In config/app.php
+
+```
+'providers' => [
+    ...
+    Loopy\FontAwesome\FontAwesomeServiceProvider::class
+]
+
+'aliases' => [
+    ...
+    'Icon' => Loopy\FontAwesome\Facades\FontAwesomeManagerFacade::class
+]
+
+
+```
+
 Add Javascript
 
 ```
@@ -28,3 +44,7 @@ Add Javascript
 
 
 ```
+
+## Use
+
+
