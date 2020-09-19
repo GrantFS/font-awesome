@@ -4,6 +4,7 @@ namespace Loopy\FontAwesome\Services;
 
 class FontAwesomeManager
 {
+    public $name = '';
     public $count = 0;
     public $class = '';
     public $text = '';
@@ -13,7 +14,7 @@ class FontAwesomeManager
 
     public function __call(string $name, array $data = []) : string
     {
-        $method = $this->camel2dashed($name);
+        $name = $this->camel2dashed($name);
 
         if (is_array($data) && isset($data[0]) && !is_string($data[0])&& !is_integer($data[0])) {
             foreach ($data[0] as $key => $value) {
@@ -28,7 +29,9 @@ class FontAwesomeManager
         $default_icon = view()->exists('font_awesome::' . snake_case($name));
 
         if (!$default_icon && !view()->exists('fontawesome.' . snake_case($name))) {
-            return '<span class="fas fa-' . $method . ' ' . $this->class .'"  data-fa-transform="' . $this->transform .'"></span>';
+            return view('font_awesome::default')
+            ->with('item', $this)
+            ->render();
         }
         $type = $default_icon ? '::' : '.';
         return view('font_awesome' . $type . snake_case($name))
