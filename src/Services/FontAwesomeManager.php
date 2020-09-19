@@ -4,13 +4,12 @@ namespace Loopy\FontAwesome\Services;
 
 class FontAwesomeManager
 {
-    public $name = '';
-    public $count = 0;
-    public $class = '';
-    public $text = '';
-    public $text_class = '';
-    public $transform = '';
-    public $hours = '';
+    protected $name = '';
+    protected $count = 0;
+    protected $class = '';
+    protected $text = '';
+    protected $text_class = '';
+    protected $transform = '';
 
     public function __call(string $name, array $data = []) : string
     {
@@ -21,10 +20,12 @@ class FontAwesomeManager
                 $key = snake_case($key);
                 $this->$key = $value;
             }
-        } elseif (is_array($data) && isset($data[0]) && is_string($data[0])) {
-            $this->class = $data[0];
-        } elseif (is_array($data) && isset($data[0]) && is_integer($data[0])) {
-            $this->count = $data[0];
+        } elseif (is_array($data) && isset($data[0])) {
+            if (is_string($data[0])) {
+                $this->class = $data[0];
+            } elseif (is_integer($data[0])) {
+                $this->count = $data[0];
+            }
         }
         $default_icon = view()->exists('font_awesome::' . snake_case($name));
 
@@ -37,6 +38,36 @@ class FontAwesomeManager
         return view('font_awesome' . $type . snake_case($name))
         ->with('item', $this)
         ->render();
+    }
+
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    public function getClass() : string
+    {
+        return $this->class;
+    }
+
+    public function getText() : string
+    {
+        return $this->text;
+    }
+
+    public function getTextClass() : string
+    {
+        return $this->text_class;
+    }
+
+    public function getTransform() : string
+    {
+        return $this->transform;
+    }
+
+    public function getCount() : int
+    {
+        return $this->count;
     }
 
     private function camel2dashed(string $className) : string

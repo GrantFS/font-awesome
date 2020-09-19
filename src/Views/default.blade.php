@@ -1,1 +1,1 @@
-<span class="fas fa-{{ $item->name }} {{ $item->class }}"  data-fa-transform="{{ $item->transform }}"></span>
+<span class="fas fa-{{ $item->getName() }} {{ $item->getClass() }}" data-fa-transform="{{ $item->transform }}"></span>
