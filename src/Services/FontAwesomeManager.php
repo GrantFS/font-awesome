@@ -15,13 +15,13 @@ class FontAwesomeManager
     {
         $this->name = $this->camel2dashed($name);
 
-        if (is_array($data) && isset($data[0]) && !is_string($data[0])&& !is_integer($data[0])) {
-            foreach ($data[0] as $key => $value) {
-                $key = snake_case($key);
-                $this->$key = $value;
-            }
-        } elseif (is_array($data) && isset($data[0])) {
-            if (is_string($data[0])) {
+        if (is_array($data) && isset($data[0])) {
+            if (!is_string($data[0])&& !is_integer($data[0]) || count($data) > 1) {
+                foreach ($data[0] as $key => $value) {
+                    $key = snake_case($key);
+                    $this->$key = $value;
+                }
+            } elseif (is_string($data[0])) {
                 $this->class = $data[0];
             } elseif (is_integer($data[0])) {
                 $this->count = $data[0];
