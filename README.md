@@ -45,6 +45,28 @@ Add Javascript
 
 ```
 
-## Use
+## Standard Use
 
 
+To use any of the Fontawesome icons that are free simiply use the facade followed by the name of the icon.
+- Use camelcase
+- Remember to escape
+
+```
+
+{!! Icon::addressBook() !!} => https://fontawesome.com/icons/address-book?style=regular
+
+
+```
+
+## Advanced Use
+
+- Create the template in the views/fontawesome directory call it a snake case name
+- Pass in a class to be used in the template this can be a string or an array
+
+```
+
+{!! Icon::list('text-primary') !!}
+{!! Icon::list(['class' => 'text-primary', 'other_data' => 'Maybe a tooltip?' ]) !!}
+
+```
