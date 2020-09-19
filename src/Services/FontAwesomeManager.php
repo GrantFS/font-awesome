@@ -14,7 +14,7 @@ class FontAwesomeManager
 
     public function __call(string $name, array $data = []) : string
     {
-        $name = $this->camel2dashed($name);
+        $this->name = $this->camel2dashed($name);
 
         if (is_array($data) && isset($data[0]) && !is_string($data[0])&& !is_integer($data[0])) {
             foreach ($data[0] as $key => $value) {
