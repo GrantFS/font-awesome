@@ -4,12 +4,12 @@ namespace Loopy\FontAwesome\Services;
 
 class FontAwesomeManager
 {
-    protected $count = 0;
-    protected $class = '';
-    protected $text = '';
-    protected $text_class = '';
-    protected $transform = '';
-    protected $hours = '';
+    public $count = 0;
+    public $class = '';
+    public $text = '';
+    public $text_class = '';
+    public $transform = '';
+    public $hours = '';
 
     public function __call(string $name, array $data = []) : string
     {
@@ -25,13 +25,13 @@ class FontAwesomeManager
         } elseif (is_array($data) && isset($data[0]) && is_integer($data[0])) {
             $this->count = $data[0];
         }
-        $default_icon = !view()->exists('fontawesome::' . snake_case($name));
+        $default_icon = view()->exists('font_awesome::' . snake_case($name));
 
         if (!$default_icon && !view()->exists('fontawesome.' . snake_case($name))) {
             return '<span class="fas fa-' . $method . ' ' . $this->class .'"  data-fa-transform="' . $this->transform .'"></span>';
         }
         $type = $default_icon ? '::' : '.';
-        return view('fontawesome' . $type. . snake_case($name))
+        return view('font_awesome' . $type . snake_case($name))
         ->with('item', $this)
         ->render();
     }
