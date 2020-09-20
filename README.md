@@ -70,3 +70,17 @@ To use any of the Fontawesome icons that are free simiply use the facade followe
 {!! Icon::list(['class' => 'text-primary', 'other_data' => 'Maybe a tooltip?' ]) !!}
 
 ```
+
+## Frames
+
+To use any Free Icon inside a frame, such as a circle or square.
+
+Add Frame+Shape to the front of any Free Icon
+
+```
+
+Icon::FrameCircleAddressBook('text-primary)
+Icon::FrameSquareUser('text-primary)
+
+
+```
