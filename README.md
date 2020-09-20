@@ -79,8 +79,8 @@ Add Frame+Shape to the front of any Free Icon
 
 ```
 
-Icon::FrameCircleAddressBook('text-primary)
-Icon::FrameSquareUser('text-primary)
+Icon::frameCircleAddressBook('text-primary)
+Icon::frameSquareUser('text-primary)
 
 
 ```
