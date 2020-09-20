@@ -27,14 +27,15 @@ class FontAwesomeManager
                 $this->count = $data[0];
             }
         }
-        $default_icon = view()->exists('font_awesome::' . snake_case($name));
+        $default_icon = view()->exists('font_awesome::publish.' . snake_case($name));
 
         if (!$default_icon && !view()->exists('font_awesome.' . snake_case($name))) {
             return view('font_awesome::default')
             ->with('item', $this)
             ->render();
         }
-        $type = $default_icon ? '::' : '.';
+
+        $type = $default_icon ? '::publish.' : '.';
         return view('font_awesome' . $type . snake_case($name))
         ->with('item', $this)
         ->render();
