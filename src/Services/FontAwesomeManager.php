@@ -29,7 +29,7 @@ class FontAwesomeManager
         }
         $default_icon = view()->exists('font_awesome::' . snake_case($name));
 
-        if (!$default_icon && !view()->exists('fontawesome.' . snake_case($name))) {
+        if (!$default_icon && !view()->exists('font_awesome.' . snake_case($name))) {
             return view('font_awesome::default')
             ->with('item', $this)
             ->render();
