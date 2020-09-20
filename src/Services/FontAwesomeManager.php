@@ -4,6 +4,7 @@ namespace Loopy\FontAwesome\Services;
 
 class FontAwesomeManager
 {
+    protected $frame;
     protected $name = '';
     protected $count = 0;
     protected $class = '';
@@ -14,6 +15,7 @@ class FontAwesomeManager
     public function __call(string $name, array $data = []) : string
     {
         $this->name = $this->camel2dashed($name);
+        $this->checkFrame();
 
         if (is_array($data) && isset($data[0])) {
             if (!is_string($data[0])&& !is_integer($data[0]) || count($data) > 1) {
@@ -28,6 +30,11 @@ class FontAwesomeManager
             }
         }
         $default_icon = view()->exists('font_awesome::publish.' . snake_case($name));
+        if ($this->frame) {
+            return view('font_awesome::' . $this->frame)
+            ->with('item', $this)
+            ->render();
+        }
 
         if (!$default_icon && !view()->exists('font_awesome.' . snake_case($name))) {
             return view('font_awesome::default')
@@ -71,8 +78,24 @@ class FontAwesomeManager
         return $this->count;
     }
 
+    public function getFrame() : string
+    {
+        return $this->frame;
+    }
+
     private function camel2dashed(string $className) : string
     {
         return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $className));
+    }
+
+    private function checkFrame()
+    {
+        $box = explode('-', $this->name);
+        if (!empty($box) && count($box) > 2 && $box[0] == 'frame') {
+            $this->frame = $box[1];
+            unset($box[1]);
+            unset($box[0]);
+            $this->name = implode('-', $box);
+        }
     }
 }
