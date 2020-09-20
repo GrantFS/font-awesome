@@ -84,3 +84,11 @@ Icon::frameSquareUser('text-primary)
 
 
 ```
+
+To create your own frames simply add the desired code to the views/font_awesome directory and begin the call with frame
+
+```
+
+Icon::frameMyframe...
+
+```
