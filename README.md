@@ -1,6 +1,6 @@
 # FontAwesome
 
-FontAwesome is a Laravel Package currently designed to work with laravel 5.3+
+FontAwesome is a Laravel Package for Font Awesome 5
 
 ## Installation
 
