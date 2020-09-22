@@ -106,3 +106,8 @@ To create your own frames simply add the desired code to the views/font_awesome 
 Icon::frameMyframe...
 
 ```
+
+
+### Notes
+
+- The templates automatically include an fas in each class, so if you are using a brand or other, remember to include the prefix e.g. fab
