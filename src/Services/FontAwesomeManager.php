@@ -17,6 +17,7 @@ class FontAwesomeManager
     public function __call(string $name, array $data = []) : string
     {
         $this->frame = null;
+        $this->reset();
         $this->name = $this->camel2dashed($name);
         $this->checkFrame();
         $this->setData($data);
@@ -71,6 +72,11 @@ class FontAwesomeManager
     public function hasTransform() : bool
     {
         return !empty($this->transform);
+    }
+
+    public function hasClass() : bool
+    {
+        return !empty($this->class);
     }
 
     public function getFrameTransform() : string
@@ -135,5 +141,18 @@ class FontAwesomeManager
                 }
             }
         }
+    }
+
+    private function reset()
+    {
+        $this->frame = null;
+        $this->name = '';
+        $this->count = 0;
+        $this->class = '';
+        $this->text = '';
+        $this->text_class = '';
+        $this->transform = '';
+        $this->frame_transform = '';
+        $this->frame_class = '';
     }
 }
