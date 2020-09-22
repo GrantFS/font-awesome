@@ -1,4 +1,5 @@
-<span class="fa-layers fa-fw">
-	<span class="fas fa-square {{ $item->getClass() }}" data-fa-transform="grow-10"></span>
-    <span class="fas fa-{{ $item->getName() }}" data-fa-transform="{{ $item->getTransform() }}" style="color:white;"></span>
+<span class="fa-stack">
+    <span class="fa-stack-2x fas fa-square {{ $item->getFrameClass() }}"
+        data-fa-transform="{{ $item->hasFrameTransform() ? $item->getFrameTransform() : '' }}"></span>
+    <span class="fas fa-{{ $item->getName() }} {{ $item->getClass() }} fa-stack-1x fa-inverse" data-fa-transform="{{ $item->getTransform() }}"></span>
 </span>

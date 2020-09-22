@@ -11,6 +11,8 @@ class FontAwesomeManager
     protected $text = '';
     protected $text_class = '';
     protected $transform = '';
+    protected $frame_transform = '';
+    protected $frame_class = '';
 
     public function __call(string $name, array $data = []) : string
     {
@@ -64,6 +66,31 @@ class FontAwesomeManager
     public function getTransform() : string
     {
         return $this->transform;
+    }
+
+    public function hasTransform() : bool
+    {
+        return !empty($this->transform);
+    }
+
+    public function getFrameTransform() : string
+    {
+        return $this->frame_transform;
+    }
+
+    public function hasFrameTransform() : bool
+    {
+        return !empty($this->frame_transform);
+    }
+
+    public function getFrameClass() : string
+    {
+        return $this->frame_class;
+    }
+
+    public function hasFrameClass() : bool
+    {
+        return !empty($this->frame_class);
     }
 
     public function getCount() : int
