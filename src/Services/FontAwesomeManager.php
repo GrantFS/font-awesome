@@ -14,7 +14,7 @@ class FontAwesomeManager
     protected $frame_transform = '';
     protected $frame_class = '';
 
-    public function __call(string $name, array $data = []) : string
+    public function __call($name, $data = [])
     {
         $this->reset();
         $this->name = $this->camel2dashed($name);
@@ -43,72 +43,72 @@ class FontAwesomeManager
         ->render();
     }
 
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getClass() : string
+    public function getClass()
     {
         return $this->class;
     }
 
-    public function getText() : string
+    public function getText()
     {
         return $this->text;
     }
 
-    public function getTextClass() : string
+    public function getTextClass()
     {
         return $this->text_class;
     }
 
-    public function getTransform() : string
+    public function getTransform()
     {
         return $this->transform;
     }
 
-    public function hasTransform() : bool
+    public function hasTransform()
     {
         return !empty($this->transform);
     }
 
-    public function hasClass() : bool
+    public function hasClass()
     {
         return !empty($this->class);
     }
 
-    public function getFrameTransform() : string
+    public function getFrameTransform()
     {
         return $this->frame_transform;
     }
 
-    public function hasFrameTransform() : bool
+    public function hasFrameTransform()
     {
         return !empty($this->frame_transform);
     }
 
-    public function getFrameClass() : string
+    public function getFrameClass()
     {
         return $this->frame_class;
     }
 
-    public function hasFrameClass() : bool
+    public function hasFrameClass()
     {
         return !empty($this->frame_class);
     }
 
-    public function getCount() : int
+    public function getCount()
     {
         return $this->count;
     }
 
-    public function getFrame() : string
+    public function getFrame()
     {
         return $this->frame;
     }
 
-    private function camel2dashed(string $className) : string
+    private function camel2dashed($className)
     {
         return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $className));
     }
@@ -124,7 +124,7 @@ class FontAwesomeManager
         }
     }
 
-    private function setData(array $data)
+    private function setData($data)
     {
         if (!empty($data[0])) {
             if (count($data) == 1) {
