@@ -16,7 +16,6 @@ class FontAwesomeManager
 
     public function __call(string $name, array $data = []) : string
     {
-        $this->frame = null;
         $this->reset();
         $this->name = $this->camel2dashed($name);
         $this->checkFrame();
