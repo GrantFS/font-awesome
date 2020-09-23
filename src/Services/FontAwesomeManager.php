@@ -127,13 +127,13 @@ class FontAwesomeManager
     private function setData($data)
     {
         if (!empty($data[0])) {
-            if (count($data) == 1) {
+            if (count($data[0]) == 1) {
                 if (is_string($data[0])) {
                     $this->class = $data[0];
                 } elseif (is_integer($data[0])) {
                     $this->count = $data[0];
                 }
-            } elseif (count($data) > 1) {
+            } elseif (count($data[0]) > 1) {
                 foreach ($data[0] as $key => $value) {
                     $key = snake_case($key);
                     $this->$key = $value;
