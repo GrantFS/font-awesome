@@ -109,8 +109,12 @@ Icon::frameMyframe...
 
 ## Variables
 
-Any of the below variables can be passed in an array to the icon.
+Pass a string and the class will be set
+Pass an integer and the count will be set
 
+### Passing an array
+
+Minimum of 2 variables passed to validate check
 
 - class = The class for the icon.
 - transform = The transform for the icon.
@@ -118,6 +122,8 @@ Any of the below variables can be passed in an array to the icon.
 - frame_class = The class for the frame.
 - count = The count, for use with comments etc.
 - text = for use with the getText() method
+
+Any unknown variable can be passed and called in a custom template $item->custom_variable.
 
 ```
 
