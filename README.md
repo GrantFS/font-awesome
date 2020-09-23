@@ -109,8 +109,8 @@ Icon::frameMyframe...
 
 ## Variables
 
-Pass a string and the class will be set
-Pass an integer and the count will be set
+- Pass a string and the class will be set
+- Pass an integer and the count will be set
 
 ### Passing an array
 
