@@ -107,6 +107,24 @@ Icon::frameMyframe...
 
 ```
 
+## Variables
+
+Any of the below variables can be passed in an array to the icon.
+
+
+- class = The class for the icon.
+- transform = The transform for the icon.
+- frame_transform = The transform for the frame.
+- frame_class = The class for the frame.
+- count = The count, for use with comments etc.
+- text = for use with the getText() method
+
+```
+
+{!! Icon::frameCircleBook(['transform' => 'grow-10', 'frame_transform' => 'grow-10', 'frame_class' => 'text-warning']) !!}
+
+
+```
 
 ### Notes
 
