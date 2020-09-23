@@ -2,8 +2,6 @@
 
 namespace Loopy\FontAwesome\Services;
 
-use Illuminate\Support\Str;
-
 class FontAwesomeManager
 {
     protected $frame;
@@ -23,7 +21,7 @@ class FontAwesomeManager
         $this->checkFrame();
         $this->setData($data);
 
-        $blade_template = Str::snake($name);
+        $blade_template = snake_case($name);
         $default_icon = view()->exists('font_awesome::publish.' . $blade_template);
         $type = $default_icon ? '::publish.' : '.';
 
@@ -129,15 +127,15 @@ class FontAwesomeManager
     private function setData(array $data)
     {
         if (!empty($data[0])) {
-            if (count($data) == 1) {
+            if (count($data[0]) == 1) {
                 if (is_string($data[0])) {
                     $this->class = $data[0];
                 } elseif (is_integer($data[0])) {
                     $this->count = $data[0];
                 }
-            } elseif (count($data) > 1) {
+            } elseif (count($data[0]) > 1) {
                 foreach ($data[0] as $key => $value) {
-                    $key = Str::snake($key);
+                    $key = snake_case($key);
                     $this->$key = $value;
                 }
             }
